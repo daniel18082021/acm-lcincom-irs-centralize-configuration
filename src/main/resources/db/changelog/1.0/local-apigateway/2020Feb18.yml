@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: '18Feb2020-200000-updateTransactionPathZuulConfig'
+      author: tu.buinguyen
+      dbms: 'postgresql'
+      rollback:
+        - sql:
+            sql:
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.confirm.url';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.confirm.stripPrefix';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.confirm.path';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.verify.url';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.verify.stripPrefix';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.verify.path';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.status.url';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.status.stripPrefix';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.status.path';
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.transaction.url', '${services.service-endpoint.transaction-confirmation}/transactions/local', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.transaction.stripPrefix', 'true', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.transaction.path', '/transactions/**', now());
+      changes:
+        - sql:
+            sql:
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.transaction.path';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.transaction.stripPrefix';
+              DELETE FROM orbitmaster.configuration WHERE "application" = 'local-api-gateway' and "profile" = 'default' and "label" = 'default' and "key" ='zuul.routes.transaction.url';
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.confirm.url', '${services.service-endpoint.transaction-confirmation}/transactions/local/sync-confirm', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.confirm.stripPrefix', 'true', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.confirm.path', '/transactions/confirm/**', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.verify.url', '${services.service-endpoint.transaction-confirmation}/transactions/local/verify', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.verify.stripPrefix', 'true', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.verify.path', '/transactions/verify/**', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.status.url', '${services.service-endpoint.transaction-status}/transactions/local/status', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.status.stripPrefix', 'true', now());
+              INSERT INTO orbitmaster.configuration ("application", "profile", "label", "key", "value", last_modified_at) VALUES ('local-api-gateway', 'default', 'default', 'zuul.routes.status.path', '/transactions/status/**', now());
+

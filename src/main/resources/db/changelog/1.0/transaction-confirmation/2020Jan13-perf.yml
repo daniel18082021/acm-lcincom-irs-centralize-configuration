@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: '2020Jan13-120000-insertRouterServerConfiguration'
+      author: khanh_nguyen_vn
+      dbms: 'postgresql'
+      context: 'perf'
+      rollback:
+        - sql:
+            sql:
+              - DELETE FROM orbitmaster.configuration WHERE application = 'transaction-confirmation' and 'profile' = 'default' and label = 'default' and key ='grpc.port';
+                DELETE FROM orbitmaster.configuration WHERE application = 'transaction-confirmation' and 'profile' = 'default' and label = 'default' and key ='management.server.port';
+                DELETE FROM orbitmaster.configuration WHERE application = 'transaction-confirmation' and 'profile' = 'default' and label = 'default' and key ='server.port';
+                DELETE FROM orbitmaster.configuration WHERE application = 'transaction-confirmation' and 'profile' = 'default' and label = 'default' and key ='spring.liquibase.default-schema';
+                DELETE FROM orbitmaster.configuration WHERE application = 'transaction-confirmation' and 'profile' = 'default' and label = 'default' and key ='spring.liquibase.liquibase-schema';
+      changes:
+        - sql:
+            sql:
+              - INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('transaction-confirmation', 'default', 'default', 'grpc.port', '19443');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('transaction-confirmation', 'default', 'default', 'management.server.port', '18443');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('transaction-confirmation', 'default', 'default', 'server.port', '8443');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('transaction-confirmation', 'default', 'default', 'spring.liquibase.default-schema', 'orbitmaster');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('transaction-confirmation', 'default', 'default', 'spring.liquibase.liquibase-schema', 'orbitmaster');

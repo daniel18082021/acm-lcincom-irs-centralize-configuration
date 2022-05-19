@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: '31Jan2020-151700-insertCacheAndAuthenticationKey'
+      author: khanh_nguyen_vnn
+      dbms: 'postgresql'
+      context: 'prod'
+      rollback:
+        - sql:
+            sql:
+                DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key= 'authenticate.private-key';
+                DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key= 'spring.cache.type';
+                DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key= 'spring.redis.host';
+                DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key= 'spring.redis.port';
+                DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key= 'spring.redis.timeout';
+      changes:
+        - sql:
+            sql:
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'authenticate.private-key', '#AUTHENTICATE_PRIVATE_KEY#');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'spring.cache.type', 'redis');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'spring.redis.host', '#REDIS_HOST#');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'spring.redis.port', '#REDIS_PORT#');
+                INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'spring.redis.timeout', '#REDIS_TIMEOUT#');
+

@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: '26Dec2019-090302-insertZipkinURL'
+      author: long.nguyenduc
+      dbms: 'postgresql'
+      context: "prod"
+      rollback:
+        - sql:
+            sql:
+              - DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='spring.zipkin.base-url';
+                DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='spring.kafka.properties.security.protocol';
+                DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='spring.cloud.stream.kafka.binder.brokers';
+                DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='keycloak.public-key';
+      changes:
+        - sql:
+            sql:
+              - INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.zipkin.base-url', '#ZIPKIN_URL#', now());
+                INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.kafka.properties.security.protocol', 'SSL', now());
+                INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'spring.cloud.stream.kafka.binder.brokers', '#KAFKA_ADD#', now());
+                INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'keycloak.public-key', '#KEYCLOAK_PUBLIC_KEY#',  now());
+  - changeSet:
+      id: '26Dec2019-090302-insertKeycloakData'
+      author: long.nguyenduc
+      dbms: 'postgresql'
+      context: "prod"
+      rollback:
+        - sql:
+            sql:
+              - DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='keycloak.base-url';
+                DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='keycloak.realm';
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'keycloak.base-url', '#KEYCLOAK_BASE_URL#',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'keycloak.realm', '#KEYCLOAK_REALM#',  now());
+  - changeSet:
+      id: '26Dec2019-090302-insertServiceEndPoint'
+      author: long.nguyenduc
+      dbms: 'postgresql'
+      context: "prod"
+      rollback:
+        - sql:
+            sql:
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.partner-management';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.router';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.translator';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.transaction-status';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.transaction-confirmation';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.local-api-gateway';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.global-api-gateway';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.local-spi-engine';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.global-spi-engine';
+              DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and "key" ='services.service-endpoint.centralize-config';
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.partner-management', '#SERVICE_ENDPOINT_PARTNER#',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.router', '#SERVICE_ENDPOINT_ROUTER#',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.translator', '#SERVICE_ENDPOINT_TRANSLATOR#',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.transaction-status', '#SERVICE_ENDPOINT_TRANSACTION_STATUS#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.transaction-confirmation', '#SERVICE_ENDPOINT_TRANSACTION_CONFIRMATION#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.global-api-gateway', '#SERVICE_ENDPOINT_GLOBAL_API_GATEWAY#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.local-api-gateway', '#SERVICE_ENDPOINT_LOCAL_API_GATEWAY#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.local-spi-engine', '#SERVICE_ENDPOINT_LOCAL_SPI_ENGINE#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES ('application', 'default', 'default', 'services.service-endpoint.global-spi-engine', '#SERVICE_ENDPOINT_GLOBAL_SPI_ENGINE#', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, "label", "key", value, last_modified_at) VALUES( 'application', 'default', 'default', 'services.service-endpoint.centralize-config', '#SERVICE_ENDPOINT_CENTRALIZE_CONFIGURATION#', now());
+
+

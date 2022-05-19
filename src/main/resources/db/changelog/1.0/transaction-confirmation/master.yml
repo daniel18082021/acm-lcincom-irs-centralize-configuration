@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13-local.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13-dev.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13-qa.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13-perf.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Jan13-prod.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/2020Feb27.yml

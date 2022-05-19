@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: '2020Jan13-1200000-insertServerConfiguration'
+      author: khanh_nguyen_vn
+      dbms: 'postgresql'
+      context : 'local'
+      rollback:
+        - sql:
+            sql:
+              DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key = 'management.port';
+              DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key = 'management.security.enabled';
+              DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key = 'server.port';
+              DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key = 'zuul.debug';
+              DELETE FROM orbitmaster.configuration WHERE application = 'local-api-gateway' and 'profile' = 'default' and label = 'default' and key = 'zuul.trace';
+      changes:
+        - sql:
+            sql:
+              INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'management.port', '18081');
+              INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'management.security.enabled', 'false');
+              INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'server.port', '8081');
+              INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'zuul.debug', 'true');
+              INSERT INTO orbitmaster.configuration(application, profile, label, key, value) VALUES ('local-api-gateway', 'default', 'default', 'zuul.trace', 'true');

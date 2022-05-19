@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/1.0/global/master.yml
+  - include:
+      file: db/changelog/1.0/transaction-confirmation/master.yml
+  - include:
+      file: db/changelog/1.0/global-apigateway/master.yml
+  - include:
+      file: db/changelog/1.0/local-apigateway/master.yml
+  - include:
+      file: db/changelog/1.0/partner-management/master.yml
+  - include:
+      file: db/changelog/1.0/router/master.yml
+  - include:
+      file: db/changelog/1.0/operation-portal/master.yml
+  - include:
+      file: db/changelog/1.0/transaction-status/master.yml
+  - include:
+      file: db/changelog/1.0/translator/master.yml
+  - include:
+      file: db/changelog/1.0/local-spi-engine/master.yml
+  - include:
+      file: db/changelog/1.0/global-spi-engine/master.yml

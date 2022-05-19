@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: '2020Feb05-090303-global-insertSecurityResourceConfiguration'
+      author: huy.nguyenquoc
+      dbms: 'postgresql'
+      rollback:
+        - sql:
+            sql:
+              DELETE FROM centralize_configuration.configuration WHERE "application" = 'application' and "profile" = 'default' and "label" = 'default' and "key" = 'spring.security.oauth2.resourceserver.jwt.jwk-set-uri';
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.configuration (application, profile, label, key, value) VALUES ('application', 'default', 'default', 'spring.security.oauth2.resourceserver.jwt.jwk-set-uri', '${ds}{keycloak.realm-url}/protocol/openid-connect/certs');
+
+
+
+

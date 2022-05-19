@@ -1,0 +1,301 @@
+databaseChangeLog:
+  - changeSet:
+      id: '2020Feb19-090300-createTableConfiguration'
+      author: thanh.nguyentien
+      dbms: 'postgresql'
+      rollback:
+        - dropIndex:
+            schemaName: centralize_configuration
+            indexName: code_name_idx_01
+            tableName: country
+        - dropTable:
+            schemaName: centralize_configuration
+            tableName: country
+      changes:
+        - createTable:
+            schemaName: centralize_configuration
+            columns:
+              - column:
+                  name: code
+                  type: VARCHAR(3)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_country
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: lower_name
+                  type: VARCHAR(100)
+              - column:
+                  name: unique_code
+                  type: INT
+            tableName: country
+        - createIndex:
+            schemaName: centralize_configuration
+            indexName: code_name_idx_01
+            tableName: country
+            unique: true
+            columns:
+              - column:
+                  name: code
+              - column:
+                  name: name
+
+  - changeSet:
+      id: '2020Feb19-090302-insertLoggingPatternLevel'
+      author: thanh.nguyentien
+      dbms: 'postgresql'
+      rollback:
+        - sql:
+            sql: DELETE FROM centralize_configuration.country;
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AFG', 'Afghanistan', 'afghanistan', 4);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ALA', 'Aland Islands', 'aland islands', 248);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ALB', 'Albania', 'albania', 8);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DZA', 'Algeria', 'algeria', 12);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ASM', 'American Samoa', 'american samoa', 16);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AND', 'Andorra', 'andorra', 20);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AGO', 'Angola', 'angola', 24);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AIA', 'Anguilla', 'anguilla', 660);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ATA', 'Antarctica', 'antarctica', 10);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ATG', 'Antigua and Barbuda', 'antigua and barbuda', 28);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ARG', 'Argentina', 'argentina', 32);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ARM', 'Armenia', 'armenia', 51);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ABW', 'Aruba', 'aruba', 533);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AUS', 'Australia', 'australia', 36);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AUT', 'Austria', 'austria', 40);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('AZE', 'Azerbaijan', 'azerbaijan', 31);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BHS', 'Bahamas', 'bahamas', 44);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BHR', 'Bahrain', 'bahrain', 48);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BGD', 'Bangladesh', 'bangladesh', 50);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BRB', 'Barbados', 'barbados', 52);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BLR', 'Belarus', 'belarus', 112);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BEL', 'Belgium', 'belgium', 56);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BLZ', 'Belize', 'belize', 84);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BEN', 'Benin', 'benin', 204);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BMU', 'Bermuda', 'bermuda', 60);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BTN', 'Bhutan', 'bhutan', 64);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BOL', 'Bolivia', 'bolivia', 68);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BIH', 'Bosnia and Herzegovina', 'bosnia and herzegovina', 70);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BWA', 'Botswana', 'botswana', 72);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BVT', 'Bouvet Island', 'bouvet island', 74);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BRA', 'Brazil', 'brazil', 76);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VGB', 'British Virgin Islands', 'british virgin islands', 92);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IOT', 'British Indian Ocean Territory', 'british indian ocean territory', 86);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BRN', 'Brunei Darussalam', 'brunei darussalam', 96);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BGR', 'Bulgaria', 'bulgaria', 100);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BFA', 'Burkina Faso', 'burkina faso', 854);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BDI', 'Burundi', 'burundi', 108);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KHM', 'Cambodia', 'cambodia', 116);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CMR', 'Cameroon', 'cameroon', 120);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CAN', 'Canada', 'canada', 124);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CPV', 'Cape Verde', 'cape verde', 132);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CYM', 'Cayman Islands', 'cayman islands', 136);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CAF', 'Central African Republic', 'central african republic', 140);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TCD', 'Chad', 'chad', 148);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CHL', 'Chile', 'chile', 152);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CHN', 'China', 'china', 156);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HKG', 'Hong Kong, SAR China', 'hong kong, sar china', 344);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MAC', 'Macao, SAR China', 'macao, sar china', 446);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CXR', 'Christmas Island', 'christmas island', 162);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CCK', 'Cocos (Keeling) Islands', 'cocos (keeling) islands', 166);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('COL', 'Colombia', 'colombia', 170);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('COM', 'Comoros', 'comoros', 174);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('COG', 'Congo (Brazzaville)', 'congo (brazzaville)', 178);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('COD', 'Congo, (Kinshasa)', 'congo, (kinshasa)', 180);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('COK', 'Cook Islands', 'cook islands', 184);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CRI', 'Costa Rica', 'costa rica', 188);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CIV', 'Côte d''Ivoire', 'côte d''ivoire', 384);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HRV', 'Croatia', 'croatia', 191);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CUB', 'Cuba', 'cuba', 192);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CYP', 'Cyprus', 'cyprus', 196);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CZE', 'Czech Republic', 'czech republic', 203);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DNK', 'Denmark', 'denmark', 208);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DJI', 'Djibouti', 'djibouti', 262);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DMA', 'Dominica', 'dominica', 212);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DOM', 'Dominican Republic', 'dominican republic', 214);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ECU', 'Ecuador', 'ecuador', 218);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('EGY', 'Egypt', 'egypt', 818);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SLV', 'El Salvador', 'el salvador', 222);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GNQ', 'Equatorial Guinea', 'equatorial guinea', 226);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ERI', 'Eritrea', 'eritrea', 232);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('EST', 'Estonia', 'estonia', 233);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ETH', 'Ethiopia', 'ethiopia', 231);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FLK', 'Falkland Islands (Malvinas)', 'falkland islands (malvinas)', 238);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FRO', 'Faroe Islands', 'faroe islands', 234);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FJI', 'Fiji', 'fiji', 242);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FIN', 'Finland', 'finland', 246);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FRA', 'France', 'france', 250);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GUF', 'French Guiana', 'french guiana', 254);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PYF', 'French Polynesia', 'french polynesia', 258);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ATF', 'French Southern Territories', 'french southern territories', 260);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GAB', 'Gabon', 'gabon', 266);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GMB', 'Gambia', 'gambia', 270);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GEO', 'Georgia', 'georgia', 268);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('DEU', 'Germany', 'germany', 276);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GHA', 'Ghana', 'ghana', 288);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GIB', 'Gibraltar', 'gibraltar', 292);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GRC', 'Greece', 'greece', 300);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GRL', 'Greenland', 'greenland', 304);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GRD', 'Grenada', 'grenada', 308);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GLP', 'Guadeloupe', 'guadeloupe', 312);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GUM', 'Guam', 'guam', 316);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GTM', 'Guatemala', 'guatemala', 320);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GGY', 'Guernsey', 'guernsey', 831);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GIN', 'Guinea', 'guinea', 324);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GNB', 'Guinea-Bissau', 'guinea-bissau', 624);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GUY', 'Guyana', 'guyana', 328);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HTI', 'Haiti', 'haiti', 332);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HMD', 'Heard and Mcdonald Islands', 'heard and mcdonald islands', 334);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VAT', 'Holy See (Vatican City State)', 'holy see (vatican city state)', 336);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HND', 'Honduras', 'honduras', 340);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('HUN', 'Hungary', 'hungary', 348);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ISL', 'Iceland', 'iceland', 352);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IND', 'India', 'india', 356);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IDN', 'Indonesia', 'indonesia', 360);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IRN', 'Iran, Islamic Republic of', 'iran, islamic republic of', 364);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IRQ', 'Iraq', 'iraq', 368);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IRL', 'Ireland', 'ireland', 372);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('IMN', 'Isle of Man', 'isle of man', 833);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ISR', 'Israel', 'israel', 376);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ITA', 'Italy', 'italy', 380);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('JAM', 'Jamaica', 'jamaica', 388);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('JPN', 'Japan', 'japan', 392);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('JEY', 'Jersey', 'jersey', 832);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('JOR', 'Jordan', 'jordan', 400);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KAZ', 'Kazakhstan', 'kazakhstan', 398);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KEN', 'Kenya', 'kenya', 404);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KIR', 'Kiribati', 'kiribati', 296);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PRK', 'Korea (North)', 'korea (north)', 408);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KOR', 'Korea (South)', 'korea (south)', 410);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KWT', 'Kuwait', 'kuwait', 414);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KGZ', 'Kyrgyzstan', 'kyrgyzstan', 417);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LAO', 'Lao PDR', 'lao pdr', 418);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LVA', 'Latvia', 'latvia', 428);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LBN', 'Lebanon', 'lebanon', 422);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LSO', 'Lesotho', 'lesotho', 426);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LBR', 'Liberia', 'liberia', 430);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LBY', 'Libya', 'libya', 434);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LIE', 'Liechtenstein', 'liechtenstein', 438);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LTU', 'Lithuania', 'lithuania', 440);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LUX', 'Luxembourg', 'luxembourg', 442);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MKD', 'Macedonia, Republic of', 'macedonia, republic of', 807);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MDG', 'Madagascar', 'madagascar', 450);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MWI', 'Malawi', 'malawi', 454);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MYS', 'Malaysia', 'malaysia', 458);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MDV', 'Maldives', 'maldives', 462);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MLI', 'Mali', 'mali', 466);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MLT', 'Malta', 'malta', 470);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MHL', 'Marshall Islands', 'marshall islands', 584);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MTQ', 'Martinique', 'martinique', 474);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MRT', 'Mauritania', 'mauritania', 478);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MUS', 'Mauritius', 'mauritius', 480);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MYT', 'Mayotte', 'mayotte', 175);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MEX', 'Mexico', 'mexico', 484);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('FSM', 'Micronesia, Federated States of', 'micronesia, federated states of', 583);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MDA', 'Moldova', 'moldova', 498);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MCO', 'Monaco', 'monaco', 492);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MNG', 'Mongolia', 'mongolia', 496);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MNE', 'Montenegro', 'montenegro', 499);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MSR', 'Montserrat', 'montserrat', 500);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MAR', 'Morocco', 'morocco', 504);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MOZ', 'Mozambique', 'mozambique', 508);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MMR', 'Myanmar', 'myanmar', 104);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NAM', 'Namibia', 'namibia', 516);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NRU', 'Nauru', 'nauru', 520);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NPL', 'Nepal', 'nepal', 524);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NLD', 'Netherlands', 'netherlands', 528);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ANT', 'Netherlands Antilles', 'netherlands antilles', 530);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NCL', 'New Caledonia', 'new caledonia', 540);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NZL', 'New Zealand', 'new zealand', 554);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NIC', 'Nicaragua', 'nicaragua', 558);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NER', 'Niger', 'niger', 562);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NGA', 'Nigeria', 'nigeria', 566);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NIU', 'Niue', 'niue', 570);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NFK', 'Norfolk Island', 'norfolk island', 574);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MNP', 'Northern Mariana Islands', 'northern mariana islands', 580);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('NOR', 'Norway', 'norway', 578);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('OMN', 'Oman', 'oman', 512);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PAK', 'Pakistan', 'pakistan', 586);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PLW', 'Palau', 'palau', 585);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PSE', 'Palestinian Territory', 'palestinian territory', 275);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PAN', 'Panama', 'panama', 591);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PNG', 'Papua New Guinea', 'papua new guinea', 598);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PRY', 'Paraguay', 'paraguay', 600);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PER', 'Peru', 'peru', 604);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PHL', 'Philippines', 'philippines', 608);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PCN', 'Pitcairn', 'pitcairn', 612);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('POL', 'Poland', 'poland', 616);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PRT', 'Portugal', 'portugal', 620);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('PRI', 'Puerto Rico', 'puerto rico', 630);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('QAT', 'Qatar', 'qatar', 634);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('REU', 'Réunion', 'réunion', 638);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ROU', 'Romania', 'romania', 642);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('RUS', 'Russian Federation', 'russian federation', 643);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('RWA', 'Rwanda', 'rwanda', 646);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('BLM', 'Saint-Barthélemy', 'saint-barthélemy', 652);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SHN', 'Saint Helena', 'saint helena', 654);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('KNA', 'Saint Kitts and Nevis', 'saint kitts and nevis', 659);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LCA', 'Saint Lucia', 'saint lucia', 662);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('MAF', 'Saint-Martin (French part)', 'saint-martin (french part)', 663);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SPM', 'Saint Pierre and Miquelon', 'saint pierre and miquelon', 666);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VCT', 'Saint Vincent and Grenadines', 'saint vincent and grenadines', 670);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('WSM', 'Samoa', 'samoa', 882);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SMR', 'San Marino', 'san marino', 674);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('STP', 'Sao Tome and Principe', 'sao tome and principe', 678);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SAU', 'Saudi Arabia', 'saudi arabia', 682);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SEN', 'Senegal', 'senegal', 686);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SRB', 'Serbia', 'serbia', 688);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SYC', 'Seychelles', 'seychelles', 690);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SLE', 'Sierra Leone', 'sierra leone', 694);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SGP', 'Singapore', 'singapore', 702);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SVK', 'Slovakia', 'slovakia', 703);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SVN', 'Slovenia', 'slovenia', 705);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SLB', 'Solomon Islands', 'solomon islands', 90);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SOM', 'Somalia', 'somalia', 706);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ZAF', 'South Africa', 'south africa', 710);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SGS', 'South Georgia and the South Sandwich Islands', 'south georgia and the south sandwich islands', 239);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SSD', 'South Sudan', 'south sudan', 728);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ESP', 'Spain', 'spain', 724);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('LKA', 'Sri Lanka', 'sri lanka', 144);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SDN', 'Sudan', 'sudan', 736);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SUR', 'Suriname', 'suriname', 740);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SJM', 'Svalbard and Jan Mayen Islands', 'svalbard and jan mayen islands', 744);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SWZ', 'Swaziland', 'swaziland', 748);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SWE', 'Sweden', 'sweden', 752);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('CHE', 'Switzerland', 'switzerland', 756);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('SYR', 'Syrian Arab Republic (Syria)', 'syrian arab republic (syria)', 760);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TWN', 'Taiwan, Republic of China', 'taiwan, republic of china', 158);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TJK', 'Tajikistan', 'tajikistan', 762);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TZA', 'Tanzania, United Republic of', 'tanzania, united republic of', 834);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('THA', 'Thailand', 'thailand', 764);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TLS', 'Timor-Leste', 'timor-leste', 626);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TGO', 'Togo', 'togo', 768);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TKL', 'Tokelau', 'tokelau', 772);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TON', 'Tonga', 'tonga', 776);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TTO', 'Trinidad and Tobago', 'trinidad and tobago', 780);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TUN', 'Tunisia', 'tunisia', 788);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TUR', 'Turkey', 'turkey', 792);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TKM', 'Turkmenistan', 'turkmenistan', 795);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TCA', 'Turks and Caicos Islands', 'turks and caicos islands', 796);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('TUV', 'Tuvalu', 'tuvalu', 798);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('UGA', 'Uganda', 'uganda', 800);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('UKR', 'Ukraine', 'ukraine', 804);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ARE', 'United Arab Emirates', 'united arab emirates', 784);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('GBR', 'United Kingdom', 'united kingdom', 826);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('USA', 'United States of America', 'united states of america', 840);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('UMI', 'US Minor Outlying Islands', 'us minor outlying islands', 581);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('URY', 'Uruguay', 'uruguay', 858);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('UZB', 'Uzbekistan', 'uzbekistan', 860);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VUT', 'Vanuatu', 'vanuatu', 548);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VEN', 'Venezuela (Bolivarian Republic)', 'venezuela (bolivarian republic)', 862);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VNM', 'Viet Nam', 'viet nam', 704);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('VIR', 'Virgin Islands, US', 'virgin islands, us', 850);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('WLF', 'Wallis and Futuna Islands', 'wallis and futuna islands', 876);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ESH', 'Western Sahara', 'western sahara', 732);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('YEM', 'Yemen', 'yemen', 887);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ZMB', 'Zambia', 'zambia', 894);
+              INSERT INTO centralize_configuration.country ("code", "name", "lower_name", "unique_code") VALUES ('ZWE', 'Zimbabwe', 'zimbabwe', 716);

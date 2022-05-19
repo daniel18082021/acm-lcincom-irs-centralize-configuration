@@ -1,0 +1,233 @@
+databaseChangeLog:
+  - changeSet:
+      id: '2020Feb20-090300-createTableConfiguration'
+      author: thanh.nguyentien
+      dbms: 'postgresql'
+      rollback:
+        - dropIndex:
+            schemaName: centralize_configuration
+            indexName: lower_name_idx_01
+            tableName: currency
+        - dropTable:
+            schemaName: centralize_configuration
+            tableName: currency
+      changes:
+        - createTable:
+            schemaName: centralize_configuration
+            columns:
+              - column:
+                  name: code
+                  type: VARCHAR(3)
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_currency
+              - column:
+                  name: code_number
+                  type: INT
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+              - column:
+                  name: lower_name
+                  type: VARCHAR(100)
+              - column:
+                  name: unit
+                  type: INT
+            tableName: currency
+        - createIndex:
+            schemaName: centralize_configuration
+            indexName: lower_name_idx_01
+            tableName: currency
+            unique: true
+            columns:
+              - column:
+                  name: lower_name
+  - changeSet:
+      id: '2020Feb20-090302-insertLoggingPatternLevel'
+      author: thanh.nguyentien
+      dbms: 'postgresql'
+      rollback:
+        - sql:
+            sql: DELETE FROM currency;
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xxx', 999, 'No currency', 'no currency', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xts', 963, 'Code reserved for testing', 'code reserved for testing', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xpt', 962, 'Platinum (one troy ounce)', 'platinum (one troy ounce)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xpd', 964, 'Palladium (one troy ounce)', 'palladium (one troy ounce)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xbd', 958, 'European Unit of Account 17 (E.U.A.-17) (bond market unit)', 'european unit of account 17 (e.u.a.-17) (bond market unit)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xbc', 957, 'European Unit of Account 9 (E.U.A.-9) (bond market unit)', 'european unit of account 9 (e.u.a.-9) (bond market unit)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xbb', 956, 'European Monetary Unit (E.M.U.-6) (bond market unit)', 'european monetary unit (e.m.u.-6) (bond market unit)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xba', 955, 'European Composite Unit (EURCO) (bond market unit)', 'european composite unit (eurco) (bond market unit)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xau', 959, 'Gold (one troy ounce)', 'gold (one troy ounce)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xag', 961, 'Silver (one troy ounce)', 'silver (one troy ounce)', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('afn', 971, 'Afghan afghani', 'afghan afghani', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xua', 965, 'ADB Unit of Account', 'adb unit of account', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('eur', 978, 'Euro', 'euro', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('all', 8, 'Albanian lek', 'albanian lek', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('dzd', 12, 'Algerian dinar', 'algerian dinar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('aoa', 973, 'Angolan kwanza', 'angolan kwanza', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xcd', 951, 'East Caribbean dollar', 'east caribbean dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ars', 32, 'Argentine peso', 'argentine peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('amd', 51, 'Armenian dram', 'armenian dram', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('awg', 533, 'Aruban florin', 'aruban florin', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('aud', 36, 'Australian dollar', 'australian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('azn', 944, 'Azerbaijani manat', 'azerbaijani manat', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bsd', 44, 'Bahamian dollar', 'bahamian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bhd', 48, 'Bahraini dinar', 'bahraini dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bdt', 50, 'Bangladeshi taka', 'bangladeshi taka', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bbd', 52, 'Barbados dollar', 'barbados dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('byn', 933, 'Belarusian ruble', 'belarusian ruble', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bzd', 84, 'Belize dollar', 'belize dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xof', 952, 'CFA franc BCEAO', 'cfa franc bceao', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bmd', 60, 'Bermudian dollar', 'bermudian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('btn', 64, 'Bhutanese ngultrum', 'bhutanese ngultrum', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bov', 984, 'Bolivian Mvdol (funds code)', 'bolivian mvdol (funds code)', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bob', 68, 'Boliviano', 'boliviano', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bam', 977, 'Bosnia and Herzegovina convertible mark', 'bosnia and herzegovina convertible mark', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bwp', 72, 'Botswana pula', 'botswana pula', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('brl', 986, 'Brazilian real', 'brazilian real', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bnd', 96, 'Brunei dollar', 'brunei dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bgn', 975, 'Bulgarian lev', 'bulgarian lev', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('bif', 108, 'Burundian franc', 'burundian franc', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cve', 132, 'Cape Verdean escudo', 'cape verdean escudo', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('khr', 116, 'Cambodian riel', 'cambodian riel', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xaf', 950, 'CFA franc BEAC', 'cfa franc beac', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cad', 124, 'Canadian dollar', 'canadian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kyd', 136, 'Cayman Islands dollar', 'cayman islands dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('clp', 152, 'Chilean peso', 'chilean peso', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('clf', 990, 'Unidad de Fomento (funds code)', 'unidad de fomento (funds code)', 4);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cny', 156, 'Renminbi (Chinese) yuan[7]', 'renminbi (chinese) yuan[7]', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cou', 970, 'Unidad de Valor Real (UVR) (funds code)[8]', 'unidad de valor real (uvr) (funds code)[8]', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cop', 170, 'Colombian peso', 'colombian peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kmf', 174, 'Comoro franc', 'comoro franc', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('crc', 188, 'Costa Rican colon', 'costa rican colon', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('hrk', 191, 'Croatian kuna', 'croatian kuna', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cup', 192, 'Cuban peso', 'cuban peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cuc', 931, 'Cuban convertible peso', 'cuban convertible peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ang', 532, 'Netherlands Antillean guilder', 'netherlands antillean guilder', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('czk', 203, 'Czech koruna', 'czech koruna', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('cdf', 976, 'Congolese franc', 'congolese franc', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('dkk', 208, 'Danish krone', 'danish krone', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('djf', 262, 'Djiboutian franc', 'djiboutian franc', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('dop', 214, 'Dominican peso', 'dominican peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('egp', 818, 'Egyptian pound', 'egyptian pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('svc', 222, 'Salvadoran colón', 'salvadoran colón', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ern', 232, 'Eritrean nakfa', 'eritrean nakfa', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('szl', 748, 'Swazi lilangeni', 'swazi lilangeni', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('etb', 230, 'Ethiopian birr', 'ethiopian birr', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('fkp', 238, 'Falkland Islands pound', 'falkland islands pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('fjd', 242, 'Fiji dollar', 'fiji dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xpf', 953, 'CFP franc (franc Pacifique)', 'cfp franc (franc pacifique)', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gmd', 270, 'Gambian dalasi', 'gambian dalasi', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gel', 981, 'Georgian lari', 'georgian lari', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ghs', 936, 'Ghanaian cedi', 'ghanaian cedi', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gip', 292, 'Gibraltar pound', 'gibraltar pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gtq', 320, 'Guatemalan quetzal', 'guatemalan quetzal', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gnf', 324, 'Guinean franc', 'guinean franc', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gyd', 328, 'Guyanese dollar', 'guyanese dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('htg', 332, 'Haitian gourde', 'haitian gourde', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('hnl', 340, 'Honduran lempira', 'honduran lempira', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('hkd', 344, 'Hong Kong dollar', 'hong kong dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('huf', 348, 'Hungarian forint', 'hungarian forint', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('isk', 352, 'Icelandic króna', 'icelandic króna', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('inr', 356, 'Indian rupee', 'indian rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('idr', 360, 'Indonesian rupiah', 'indonesian rupiah', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xdr', 960, 'Special drawing rights', 'special drawing rights', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('irr', 364, 'Iranian rial', 'iranian rial', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('iqd', 368, 'Iraqi dinar', 'iraqi dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ils', 376, 'Israeli new shekel', 'israeli new shekel', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('jmd', 388, 'Jamaican dollar', 'jamaican dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('jpy', 392, 'Japanese yen', 'japanese yen', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('jod', 400, 'Jordanian dinar', 'jordanian dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kzt', 398, 'Kazakhstani tenge', 'kazakhstani tenge', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kes', 404, 'Kenyan shilling', 'kenyan shilling', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kwd', 414, 'Kuwaiti dinar', 'kuwaiti dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kgs', 417, 'Kyrgyzstani som', 'kyrgyzstani som', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lak', 418, 'Lao kip', 'lao kip', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lbp', 422, 'Lebanese pound', 'lebanese pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lsl', 426, 'Lesotho loti', 'lesotho loti', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('zar', 710, 'South African rand', 'south african rand', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lrd', 430, 'Liberian dollar', 'liberian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lyd', 434, 'Libyan dinar', 'libyan dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mop', 446, 'Macanese pataca', 'macanese pataca', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mga', 969, 'Malagasy ariary', 'malagasy ariary', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mwk', 454, 'Malawian kwacha', 'malawian kwacha', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('myr', 458, 'Malaysian ringgit', 'malaysian ringgit', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mvr', 462, 'Maldivian rufiyaa', 'maldivian rufiyaa', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mru', 929, 'Mauritanian ouguiya', 'mauritanian ouguiya', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mur', 480, 'Mauritian rupee', 'mauritian rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mxv', 979, 'Mexican Unidad de Inversion (UDI) (funds code)', 'mexican unidad de inversion (udi) (funds code)', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mxn', 484, 'Mexican peso', 'mexican peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mdl', 498, 'Moldovan leu', 'moldovan leu', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mnt', 496, 'Mongolian tögrög', 'mongolian tögrög', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mad', 504, 'Moroccan dirham', 'moroccan dirham', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mzn', 943, 'Mozambican metical', 'mozambican metical', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mmk', 104, 'Myanmar kyat', 'myanmar kyat', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('nad', 516, 'Namibian dollar', 'namibian dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('npr', 524, 'Nepalese rupee', 'nepalese rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('nzd', 554, 'New Zealand dollar', 'new zealand dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('nio', 558, 'Nicaraguan córdoba', 'nicaraguan córdoba', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ngn', 566, 'Nigerian naira', 'nigerian naira', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('kpw', 408, 'North Korean won', 'north korean won', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('mkd', 807, 'Macedonian denar', 'macedonian denar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('nok', 578, 'Norwegian krone', 'norwegian krone', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('omr', 512, 'Omani rial', 'omani rial', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pkr', 586, 'Pakistani rupee', 'pakistani rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pab', 590, 'Panamanian balboa', 'panamanian balboa', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pgk', 598, 'Papua New Guinean kina', 'papua new guinean kina', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pyg', 600, 'Paraguayan guaraní', 'paraguayan guaraní', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pen', 604, 'Peruvian sol', 'peruvian sol', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('php', 608, 'Philippine peso[13]', 'philippine peso[13]', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('pln', 985, 'Polish złoty', 'polish złoty', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('qar', 634, 'Qatari riyal', 'qatari riyal', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ron', 946, 'Romanian leu', 'romanian leu', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('rub', 643, 'Russian ruble', 'russian ruble', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('rwf', 646, 'Rwandan franc', 'rwandan franc', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('shp', 654, 'Saint Helena pound', 'saint helena pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('wst', 882, 'Samoan tala', 'samoan tala', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('stn', 930, 'São Tomé and Príncipe dobra', 'são tomé and príncipe dobra', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sar', 682, 'Saudi riyal', 'saudi riyal', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('rsd', 941, 'Serbian dinar', 'serbian dinar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('scr', 690, 'Seychelles rupee', 'seychelles rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sll', 694, 'Sierra Leonean leone', 'sierra leonean leone', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sgd', 702, 'Singapore dollar', 'singapore dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sbd', 90, 'Solomon Islands dollar', 'solomon islands dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sos', 706, 'Somali shilling', 'somali shilling', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('krw', 410, 'South Korean won', 'south korean won', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ssp', 728, 'South Sudanese pound', 'south sudanese pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('lkr', 144, 'Sri Lankan rupee', 'sri lankan rupee', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sdg', 938, 'Sudanese pound', 'sudanese pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('srd', 968, 'Surinamese dollar', 'surinamese dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('sek', 752, 'Swedish krona/kronor', 'swedish krona/kronor', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('chw', 948, 'WIR Franc (complementary currency)', 'wir franc (complementary currency)', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('che', 947, 'WIR Euro (complementary currency)', 'wir euro (complementary currency)', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('chf', 756, 'Swiss franc', 'swiss franc', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('syp', 760, 'Syrian pound', 'syrian pound', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('twd', 901, 'New Taiwan dollar', 'new taiwan dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('tjs', 972, 'Tajikistani somoni', 'tajikistani somoni', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('tzs', 834, 'Tanzanian shilling', 'tanzanian shilling', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('thb', 764, 'Thai baht', 'thai baht', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('top', 776, 'Tongan paʻanga', 'tongan paʻanga', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ttd', 780, 'Trinidad and Tobago dollar', 'trinidad and tobago dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('tnd', 788, 'Tunisian dinar', 'tunisian dinar', 3);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('try', 949, 'Turkish lira', 'turkish lira', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('tmt', 934, 'Turkmenistan manat', 'turkmenistan manat', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ugx', 800, 'Ugandan shilling', 'ugandan shilling', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('uah', 980, 'Ukrainian hryvnia', 'ukrainian hryvnia', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('xsu', 994, 'SUCRE', 'sucre', NULL);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('aed', 784, 'United Arab Emirates dirham', 'united arab emirates dirham', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('gbp', 826, 'Pound sterling', 'pound sterling', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('usn', 997, 'United States dollar (next day) (funds code)', 'united states dollar (next day) (funds code)', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('usd', 840, 'United States dollar', 'united states dollar', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('uyw', 927, 'Unidad previsional[15]', 'unidad previsional[15]', 4);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('uyu', 858, 'Uruguayan peso', 'uruguayan peso', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('uyi', 940, 'Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)', 'uruguay peso en unidades indexadas (uruiurui) (funds code)', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('uzs', 860, 'Uzbekistan som', 'uzbekistan som', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('vuv', 548, 'Vanuatu vatu', 'vanuatu vatu', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('ves', 928, 'Venezuelan bolívar soberano[13]', 'venezuelan bolívar soberano[13]', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('vnd', 704, 'Vietnamese đồng', 'vietnamese đồng', 0);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('yer', 886, 'Yemeni rial', 'yemeni rial', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('zmw', 967, 'Zambian kwacha', 'zambian kwacha', 2);
+              INSERT INTO centralize_configuration.currency ("code", "code_number", "name", "lower_name", "unit") VALUES ('zwl', 932, 'Zimbabwean dollar', 'zimbabwean dollar', 2);
