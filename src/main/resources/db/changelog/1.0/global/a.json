@@ -1,0 +1,126 @@
+source={
+  "from": 0,
+  "size": 0,
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "range": {
+            "return_datetime": {
+              "from": "01/04/2022 00:00:00",
+              "to": "30/04/2022 23:59:59",
+              "include_lower": true,
+              "include_upper": true,
+              "time_zone": "Asia/Ho_Chi_Minh",
+              "format": "dd/MM/yyyy HH:mm:ss",
+              "boost": 1.0
+            }
+          }
+        },
+        {
+          "match": {
+            "product": {
+              "query": "sportbooks",
+              "operator": "OR",
+              "prefix_length": 0,
+              "max_expansions": 50,
+              "fuzzy_transpositions": true,
+              "lenient": false,
+              "zero_terms_query": "NONE",
+              "auto_generate_synonyms_phrase_query": true,
+              "boost": 1.0
+            }
+          }
+        }
+      ],
+      "should": [
+        {
+          "bool": {
+            "must_not": [
+              {
+                "exists": {
+                  "field": "user_type",
+                  "boost": 1.0
+                }
+              }
+            ],
+            "adjust_pure_negative": true,
+            "boost": 1.0
+          }
+        },
+        {
+          "match": {
+            "user_type": {
+              "query": "USER",
+              "operator": "OR",
+              "prefix_length": 0,
+              "max_expansions": 50,
+              "fuzzy_transpositions": true,
+              "lenient": true,
+              "zero_terms_query": "NONE",
+              "auto_generate_synonyms_phrase_query": true,
+              "boost": 1.0
+            }
+          }
+        }
+      ],
+      "adjust_pure_negative": true,
+      "minimum_should_match": "1",
+      "boost": 1.0
+    }
+  },
+  "version": true,
+  "explain": false,
+  "aggregations": {
+    "user_betticket": {
+      "terms": {
+        "field": "username",
+        "size": 10000,
+        "min_doc_count": 1,
+        "shard_min_doc_count": 0,
+        "show_term_doc_count_error": false,
+        "order": [
+          {
+            "_count": "desc"
+          },
+          {
+            "_key": "asc"
+          }
+        ]
+      },
+      "aggregations": {
+        "sum_by_device": {
+          "terms": {
+            "field": "device_name.keyword",
+            "size": 10,
+            "min_doc_count": 1,
+            "shard_min_doc_count": 0,
+            "show_term_doc_count_error": false,
+            "order": [
+              {
+                "_count": "desc"
+              },
+              {
+                "_key": "asc"
+              }
+            ]
+          },
+          "aggregations": {
+            "turnover": {
+              "sum": {
+                "field": "stake"
+              }
+            },
+            "winlost": {
+              "sum": {
+                "field": "winlost_amount"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}}]
+org.elasticsearch.transport.RemoteTransportException: [elephant-v2-es][192.168.11.111: 9300][indices: data/read/search[phase/query]]
+Caused by: org.elasticsearch.common.breaker.CircuitBreakingException: [parent] Data too large, data for [<reused_arrays>] would be [986832848/941.1mb], which is larger than the limit of [986061209/940.3mb], real usage: [986832760/941.1mb], new bytes reserved: [88/88b], usages [request=34033168/32.4mb, fielddata=120172/117.3kb, in_flight_requests=2824/2.7kb, accounting=170599165/162.6mb]

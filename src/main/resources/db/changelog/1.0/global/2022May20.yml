@@ -1,0 +1,100 @@
+databaseChangeLog:
+  - changeSet:
+      id: 'createTableConfiguration'
+      author: dev.daniel
+      rollback:
+        - dropTable:
+            tableName: configuration
+            schemaName: centralize_configuration
+        - sql:
+            sql: DROP SCHEMA IF EXISTS centralize_configuration
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS centralize_configuration
+        - createTable:
+            schemaName: centralize_configuration
+            columns:
+              - column:
+                  name: application
+                  type: VARCHAR(100)
+              - column:
+                  name: profile
+                  type: VARCHAR(50)
+              - column:
+                  name: label
+                  type: VARCHAR(50)
+              - column:
+                  name: key
+                  type: VARCHAR(120)
+              - column:
+                  name: value
+                  type: VARCHAR(3000)
+              - column:
+                  name: last_modified_at
+                  type: TIMESTAMP
+                  defaultValue: now()
+            tableName: configuration
+  - changeSet:
+      id: 'insertLoggingPatternLevel'
+      author: dev.daniel
+      rollback:
+        - sql:
+            sql: DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default' and `key` ='logging.pattern.console';
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: application
+                  value: application
+              - column:
+                  name: profile
+                  value: default
+              - column:
+                  name: label
+                  value: default
+              - column:
+                  name: key
+                  value: "logging.pattern.console"
+              - column:
+                  name: value
+                  value: "%-29d{yyyy-MM-dd'T'HH:mm:ss.SXXX}|2|%-5level|${ds}{logging.pattern.level}|${process-id-log}|%-20.20thread|%-40.40logger{40}|%m%n"
+            tableName: configuration
+            schemaName: centralize_configuration
+  - changeSet:
+      id: 'insertGlobalConfiguration'
+      author: dev.daniel
+      rollback:
+        - sql:
+            sql: DELETE FROM centralize_configuration.configuration WHERE application = 'application' and 'profile' = 'default' and label = 'default';
+      changes:
+        - sql:
+            sql:
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'logging.pattern.level', '${ds}{spring.application.name}|%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-},%X{CorrelationId}', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoints.web.exposure.include', 'metrics, prometheus, health, info', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoints.web.base-path', '/', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoint.metrics.enabled', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoint.prometheus.enabled', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoint.health.enabled', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.endpoint.info.enabled', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'management.metrics.export.prometheus.enabled', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'server.error.whitelabel.enabled', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.sleuth.sampler.probability', '1.0', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.zipkin.sender.type', 'web', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jackson.mapper.accept-case-insensitive-enums', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.datasource.hikari.max-lifetime', '900000', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.datasource.hikari.connection-timeout', '50000', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.datasource.hikari.pool-name', '${spring.application.name}-local-pool', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.open-in-view', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.properties.hibernate.dialect', 'org.hibernate.dialect.MySQL5InnoDBDialect', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.properties.hibernate.generate_statistics', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.show-sql', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.jpa.properties.hibernate.jdbc.batch_size', '50', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.mvc.throw-exception-if-no-handler-found', 'true', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'spring.resources.add-mappings', 'false', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES( 'application', 'default', 'default', 'feign.client.config.default.loggerLevel', 'full', now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES ('application', 'default', 'default', 'application.number-record-per-page', '50',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES ('application', 'default', 'default', 'spring.datasource.hikari.minimum-idle', '1',  now());
+              INSERT INTO centralize_configuration.configuration (application, profile, label, `key`, value, last_modified_at) VALUES ('application', 'default', 'default', 'spring.liquibase.contexts', '${liquibase-context}',  now());
+
+

@@ -26,8 +26,8 @@ spring:
       pool-name: ${spring.application.name}-local-pool
       minimum-idle: 1
     url: jdbc:mysql://127.0.0.1:3306/centralize_configuration?useUnicode=yes&characterEncoding=UTF-8
-    username: username
-    password: PAssw0rds
+    username: daniel
+    password: P@s$w0rd123!
   jpa:
     open-in-view: false
     properties:
@@ -60,7 +60,9 @@ spring:
         default-label: 'default'
         default-profile: 'default'
         git:
-          uri: ${HOME}/Documents/Game/acm-lcincom-irs-centralize-configuration
+          uri: https://github.com/daniel18082021/acm-lcincom-irs-centralize-configuration.git
+          username: daniel18082021
+          password: Vung@oi!mora123
     bus:
       enabled: true
     stream:

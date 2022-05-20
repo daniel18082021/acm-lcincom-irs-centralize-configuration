@@ -1,0 +1,321 @@
+16:01:47.903 [main] INFO  GamesApplication[logStarting:55] - Starting GamesApplication on Daniel.local with PID 15676 (/Users/daniel1/Documents/Vtech/vongquaymayman/build/classes/java/main started by daniel1 in /Users/daniel1/Documents/Game/acm-lcincom-irs-centralize-configuration)
+16:01:47.907 [main] INFO  GamesApplication[logStartupProfileInfo:651] - No active profile set, falling back to default profiles: default
+16:01:48.688 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:01:48.689 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:01:48.774 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.BetRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.784 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.786 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.JackpotRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.788 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.SessionLogRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.790 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TableRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.791 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TransactionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.795 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:01:48.815 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 103ms. Found 2 Redis repository interfaces.
+16:01:49.097 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:01:49.097 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:01:49.121 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:01:49.126 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:01:49.140 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 39ms. Found 7 JPA repository interfaces.
+16:01:49.394 [main] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker[postProcessAfterInitialization:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:01:49.584 [main] INFO  TomcatWebServer[initialize:92] - Tomcat initialized with port(s): 8080 (http)
+16:01:49.590 [main] INFO  Http11NioProtocol[log:173] - Initializing ProtocolHandler ["http-nio-8080"]
+16:01:49.590 [main] INFO  StandardService[log:173] - Starting service [Tomcat]
+16:01:49.590 [main] INFO  StandardEngine[log:173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+16:01:49.658 [main] INFO  [/][log:173] - Initializing Spring embedded WebApplicationContext
+16:01:49.658 [main] INFO  ContextLoader[prepareWebApplicationContext:284] - Root WebApplicationContext: initialization completed in 1680 ms
+16:01:49.771 [main] ERROR TomcatStarter[onStartup:61] - Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'servletEndpointRegistrar' defined in class path resource [org/springframework/boot/actuate/autoconfigure/endpoint/web/ServletEndpointManagementContextConfiguration$WebMvcServletEndpointManagementContextConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.endpoint.web.ServletEndpointRegistrar]: Factory method 'servletEndpointRegistrar' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'healthEndpoint' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Unsatisfied dependency expressed through method 'healthEndpoint' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'healthContributorRegistry' defined in class path resource [org/springframework/boot/actuate/autoconfigure/health/HealthEndpointConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.boot.actuate.health.HealthContributorRegistry]: Factory method 'healthContributorRegistry' threw exception; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.actuate.autoconfigure.jdbc.DataSourceHealthContributorAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine suitable jdbc url
+16:01:49.785 [main] INFO  StandardService[log:173] - Stopping service [Tomcat]
+16:01:49.793 [main] WARN  AnnotationConfigServletWebServerApplicationContext[refresh:558] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+16:01:49.804 [main] INFO  ConditionEvaluationReportLoggingListener[logMessage:136] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+16:01:49.806 [main] ERROR LoggingFailureAnalysisReporter[report:40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine suitable jdbc url
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+16:02:43.155 [main] INFO  GamesApplication[logStarting:55] - Starting GamesApplication on Daniel.local with PID 15686 (/Users/daniel1/Documents/Vtech/vongquaymayman/build/classes/java/main started by daniel1 in /Users/daniel1/Documents/Game/acm-lcincom-irs-centralize-configuration)
+16:02:43.157 [main] INFO  GamesApplication[logStartupProfileInfo:655] - The following profiles are active: dev
+16:02:43.561 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:02:43.562 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:02:43.589 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.BetRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.594 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.595 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.JackpotRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.596 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.SessionLogRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.597 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TableRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.598 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TransactionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.601 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:02:43.614 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 45ms. Found 2 Redis repository interfaces.
+16:02:43.788 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:02:43.788 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:02:43.807 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:02:43.813 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:02:43.824 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 34ms. Found 7 JPA repository interfaces.
+16:02:44.032 [main] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker[postProcessAfterInitialization:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:02:44.181 [main] INFO  TomcatWebServer[initialize:92] - Tomcat initialized with port(s): 8089 (http)
+16:02:44.187 [main] INFO  Http11NioProtocol[log:173] - Initializing ProtocolHandler ["http-nio-8089"]
+16:02:44.188 [main] INFO  StandardService[log:173] - Starting service [Tomcat]
+16:02:44.188 [main] INFO  StandardEngine[log:173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+16:02:44.272 [main] INFO  [/][log:173] - Initializing Spring embedded WebApplicationContext
+16:02:44.273 [main] INFO  ContextLoader[prepareWebApplicationContext:284] - Root WebApplicationContext: initialization completed in 1084 ms
+16:02:44.601 [main] INFO  LogHelper[logPersistenceUnitInformation:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:02:44.672 [main] INFO  Version[logVersion:46] - HHH000412: Hibernate Core {5.4.9.Final}
+16:02:44.776 [main] INFO  Version[<clinit>:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+16:02:44.852 [main] INFO  HikariDataSource[getConnection:110] - HikariPool-1 - Starting...
+16:02:44.965 [main] INFO  HikariDataSource[getConnection:123] - HikariPool-1 - Start completed.
+16:02:44.976 [main] INFO  Dialect[<init>:172] - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+16:02:45.039 [main] WARN  AnnotationBinder[bindClass:538] - HHH000503: A class should not be annotated with both @Inheritance and @MappedSuperclass. @Inheritance will be ignored for: bet.lucky.game.model.BaseEntity.
+16:02:45.606 [main] INFO  JtaPlatformInitiator[initiateService:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:02:45.613 [main] INFO  LocalContainerEntityManagerFactoryBean[buildNativeEntityManagerFactory:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:02:46.220 [main] WARN  JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:02:46.330 [main] INFO  ThreadPoolTaskExecutor[initialize:171] - Initializing ExecutorService 'applicationTaskExecutor'
+16:02:46.606 [main] INFO  StdSchedulerFactory[instantiate:1220] - Using default implementation for ThreadExecutor
+16:02:46.616 [main] INFO  SchedulerSignalerImpl[<init>:61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:02:46.616 [main] INFO  QuartzScheduler[<init>:229] - Quartz Scheduler v.2.3.2 created.
+16:02:46.616 [main] INFO  RAMJobStore[initialize:155] - RAMJobStore initialized.
+16:02:46.617 [main] INFO  QuartzScheduler[initialize:294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+16:02:46.617 [main] INFO  StdSchedulerFactory[instantiate:1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+16:02:46.617 [main] INFO  StdSchedulerFactory[instantiate:1378] - Quartz scheduler version: 2.3.2
+16:02:46.617 [main] INFO  QuartzScheduler[setJobFactory:2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@3857c5d5
+16:02:46.629 [main] INFO  EndpointLinksResolver[<init>:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+16:02:46.657 [main] INFO  SchedulerFactoryBean[startScheduler:727] - Starting Quartz Scheduler now
+16:02:46.658 [main] INFO  QuartzScheduler[start:547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+16:02:46.666 [main] INFO  ThreadPoolTaskScheduler[initialize:171] - Initializing ExecutorService
+16:02:46.670 [main] INFO  Http11NioProtocol[log:173] - Starting ProtocolHandler ["http-nio-8089"]
+16:02:46.690 [main] INFO  TomcatWebServer[start:204] - Tomcat started on port(s): 8089 (http) with context path ''
+16:02:46.691 [main] INFO  GamesApplication[logStarted:61] - Started GamesApplication in 3.853 seconds (JVM running for 4.319)
+16:02:47.229 [RMI TCP Connection(2)-127.0.0.1] INFO  [/][log:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:02:47.230 [RMI TCP Connection(2)-127.0.0.1] INFO  DispatcherServlet[initServletBean:525] - Initializing Servlet 'dispatcherServlet'
+16:02:47.240 [RMI TCP Connection(2)-127.0.0.1] INFO  DispatcherServlet[initServletBean:547] - Completed initialization in 10 ms
+16:02:47.249 [RMI TCP Connection(3)-127.0.0.1] WARN  RedisHealthIndicator[health:87] - Redis health check failed
+org.springframework.data.redis.RedisConnectionFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:281)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:475)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:132)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:95)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:82)
+	at org.springframework.boot.actuate.redis.RedisHealthIndicator.doHealthCheck(RedisHealthIndicator.java:55)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:38)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:108)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateHealth(HealthEndpointSupport.java:119)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:105)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:83)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:70)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:75)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:77)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:121)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:96)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor87.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:276)
+	... 47 common frames omitted
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 50 common frames omitted
+16:03:10.412 [SpringContextShutdownHook] INFO  QuartzScheduler[standby:585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+16:03:10.413 [SpringContextShutdownHook] INFO  SchedulerFactoryBean[destroy:845] - Shutting down Quartz Scheduler
+16:03:10.413 [SpringContextShutdownHook] INFO  QuartzScheduler[shutdown:666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+16:03:10.413 [SpringContextShutdownHook] INFO  QuartzScheduler[standby:585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+16:03:10.413 [SpringContextShutdownHook] INFO  QuartzScheduler[shutdown:740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+16:03:10.414 [SpringContextShutdownHook] INFO  ThreadPoolTaskExecutor[shutdown:208] - Shutting down ExecutorService 'applicationTaskExecutor'
+16:03:10.417 [SpringContextShutdownHook] INFO  LocalContainerEntityManagerFactoryBean[destroy:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:03:10.420 [SpringContextShutdownHook] INFO  HikariDataSource[close:350] - HikariPool-1 - Shutdown initiated...
+16:03:10.426 [SpringContextShutdownHook] INFO  HikariDataSource[close:352] - HikariPool-1 - Shutdown completed.
+16:05:04.060 [main] INFO  GamesApplication[logStarting:55] - Starting GamesApplication on Daniel.local with PID 15725 (/Users/daniel1/Documents/Vtech/vongquaymayman/build/classes/java/main started by daniel1 in /Users/daniel1/Documents/Game/acm-lcincom-irs-centralize-configuration)
+16:05:04.063 [main] INFO  GamesApplication[logStartupProfileInfo:655] - The following profiles are active: dev
+16:05:04.630 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:05:04.631 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+16:05:04.687 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.BetRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.694 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.695 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.JackpotRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.696 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.SessionLogRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.698 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TableRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.699 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.TransactionRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.701 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data Redis - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+16:05:04.718 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 71ms. Found 2 Redis repository interfaces.
+16:05:04.946 [main] INFO  RepositoryConfigurationDelegate[multipleStoresDetected:249] - Multiple Spring Data modules found, entering strict repository configuration mode!
+16:05:04.947 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:127] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+16:05:04.970 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.ConfigurationRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:05:04.975 [main] INFO  RepositoryConfigurationExtensionSupport[isStrictRepositoryCandidate:348] - Spring Data JPA - Could not safely identify store assignment for repository candidate interface bet.lucky.game.repository.impl.UserRedisRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+16:05:04.987 [main] INFO  RepositoryConfigurationDelegate[registerRepositoriesIn:187] - Finished Spring Data repository scanning in 37ms. Found 7 JPA repository interfaces.
+16:05:05.230 [main] INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker[postProcessAfterInitialization:330] - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:05:05.409 [main] INFO  TomcatWebServer[initialize:92] - Tomcat initialized with port(s): 8089 (http)
+16:05:05.416 [main] INFO  Http11NioProtocol[log:173] - Initializing ProtocolHandler ["http-nio-8089"]
+16:05:05.416 [main] INFO  StandardService[log:173] - Starting service [Tomcat]
+16:05:05.416 [main] INFO  StandardEngine[log:173] - Starting Servlet engine: [Apache Tomcat/9.0.29]
+16:05:05.483 [main] INFO  [/][log:173] - Initializing Spring embedded WebApplicationContext
+16:05:05.483 [main] INFO  ContextLoader[prepareWebApplicationContext:284] - Root WebApplicationContext: initialization completed in 1374 ms
+16:05:05.776 [main] INFO  LogHelper[logPersistenceUnitInformation:31] - HHH000204: Processing PersistenceUnitInfo [name: default]
+16:05:05.837 [main] INFO  Version[logVersion:46] - HHH000412: Hibernate Core {5.4.9.Final}
+16:05:05.941 [main] INFO  Version[<clinit>:49] - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+16:05:06.012 [main] INFO  HikariDataSource[getConnection:110] - HikariPool-1 - Starting...
+16:05:06.123 [main] INFO  HikariDataSource[getConnection:123] - HikariPool-1 - Start completed.
+16:05:06.138 [main] INFO  Dialect[<init>:172] - HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+16:05:06.204 [main] WARN  AnnotationBinder[bindClass:538] - HHH000503: A class should not be annotated with both @Inheritance and @MappedSuperclass. @Inheritance will be ignored for: bet.lucky.game.model.BaseEntity.
+16:05:06.782 [main] INFO  JtaPlatformInitiator[initiateService:52] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16:05:06.787 [main] INFO  LocalContainerEntityManagerFactoryBean[buildNativeEntityManagerFactory:416] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+16:05:07.364 [main] WARN  JpaBaseConfiguration$JpaWebConfiguration[openEntityManagerInViewInterceptor:220] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+16:05:07.457 [main] INFO  ThreadPoolTaskExecutor[initialize:171] - Initializing ExecutorService 'applicationTaskExecutor'
+16:05:07.569 [main] WARN  Dsn[dsnFrom:102] - *** Couldn't find a suitable DSN, Sentry operations will do nothing! See documentation: https://docs.sentry.io/clients/java/ ***
+16:05:07.575 [main] WARN  DefaultSentryClientFactory[getInAppFrames:556] - No 'stacktrace.app.packages' was configured, this option is highly recommended as it affects stacktrace grouping and display on Sentry. See documentation: https://docs.sentry.io/clients/java/config/#in-application-stack-frames
+16:05:07.713 [main] INFO  StdSchedulerFactory[instantiate:1220] - Using default implementation for ThreadExecutor
+16:05:07.722 [main] INFO  SchedulerSignalerImpl[<init>:61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+16:05:07.722 [main] INFO  QuartzScheduler[<init>:229] - Quartz Scheduler v.2.3.2 created.
+16:05:07.723 [main] INFO  RAMJobStore[initialize:155] - RAMJobStore initialized.
+16:05:07.723 [main] INFO  QuartzScheduler[initialize:294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+16:05:07.723 [main] INFO  StdSchedulerFactory[instantiate:1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+16:05:07.723 [main] INFO  StdSchedulerFactory[instantiate:1378] - Quartz scheduler version: 2.3.2
+16:05:07.723 [main] INFO  QuartzScheduler[setJobFactory:2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@244c0fbe
+16:05:07.733 [main] INFO  EndpointLinksResolver[<init>:58] - Exposing 2 endpoint(s) beneath base path '/actuator'
+16:05:07.760 [main] INFO  SchedulerFactoryBean[startScheduler:727] - Starting Quartz Scheduler now
+16:05:07.760 [main] INFO  QuartzScheduler[start:547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+16:05:07.769 [main] INFO  ThreadPoolTaskScheduler[initialize:171] - Initializing ExecutorService
+16:05:07.773 [main] INFO  Http11NioProtocol[log:173] - Starting ProtocolHandler ["http-nio-8089"]
+16:05:07.793 [main] INFO  TomcatWebServer[start:204] - Tomcat started on port(s): 8089 (http) with context path ''
+16:05:07.795 [main] INFO  GamesApplication[logStarted:61] - Started GamesApplication in 4.129 seconds (JVM running for 4.699)
+16:05:08.194 [RMI TCP Connection(1)-127.0.0.1] INFO  [/][log:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:05:08.195 [RMI TCP Connection(1)-127.0.0.1] INFO  DispatcherServlet[initServletBean:525] - Initializing Servlet 'dispatcherServlet'
+16:05:08.207 [RMI TCP Connection(1)-127.0.0.1] INFO  DispatcherServlet[initServletBean:547] - Completed initialization in 12 ms
+16:05:08.212 [RMI TCP Connection(2)-127.0.0.1] WARN  RedisHealthIndicator[health:87] - Redis health check failed
+org.springframework.data.redis.RedisConnectionFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:281)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:475)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:132)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:95)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:82)
+	at org.springframework.boot.actuate.redis.RedisHealthIndicator.doHealthCheck(RedisHealthIndicator.java:55)
+	at org.springframework.boot.actuate.health.AbstractHealthIndicator.health(AbstractHealthIndicator.java:82)
+	at org.springframework.boot.actuate.health.HealthIndicator.getHealth(HealthIndicator.java:37)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:81)
+	at org.springframework.boot.actuate.health.HealthEndpoint.getHealth(HealthEndpoint.java:38)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:108)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getAggregateHealth(HealthEndpointSupport.java:119)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getContribution(HealthEndpointSupport.java:105)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:83)
+	at org.springframework.boot.actuate.health.HealthEndpointSupport.getHealth(HealthEndpointSupport.java:70)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:75)
+	at org.springframework.boot.actuate.health.HealthEndpoint.health(HealthEndpoint.java:65)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:282)
+	at org.springframework.boot.actuate.endpoint.invoke.reflect.ReflectiveOperationInvoker.invoke(ReflectiveOperationInvoker.java:77)
+	at org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredOperation.invoke(AbstractDiscoveredOperation.java:60)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:121)
+	at org.springframework.boot.actuate.endpoint.jmx.EndpointMBean.invoke(EndpointMBean.java:96)
+	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:809)
+	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:801)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1466)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1307)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1399)
+	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:827)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:359)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:562)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:796)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:677)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:676)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Failed connecting to host 127.0.0.1:6379
+	at redis.clients.jedis.Connection.connect(Connection.java:204)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:100)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1866)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:276)
+	... 47 common frames omitted
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at redis.clients.jedis.Connection.connect(Connection.java:181)
+	... 50 common frames omitted
+16:05:24.220 [SpringContextShutdownHook] INFO  QuartzScheduler[standby:585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+16:05:24.220 [SpringContextShutdownHook] INFO  SchedulerFactoryBean[destroy:845] - Shutting down Quartz Scheduler
+16:05:24.220 [SpringContextShutdownHook] INFO  QuartzScheduler[shutdown:666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+16:05:24.221 [SpringContextShutdownHook] INFO  QuartzScheduler[standby:585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+16:05:24.221 [SpringContextShutdownHook] INFO  QuartzScheduler[shutdown:740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+16:05:24.222 [SpringContextShutdownHook] INFO  ThreadPoolTaskExecutor[shutdown:208] - Shutting down ExecutorService 'applicationTaskExecutor'
+16:05:24.224 [SpringContextShutdownHook] INFO  LocalContainerEntityManagerFactoryBean[destroy:598] - Closing JPA EntityManagerFactory for persistence unit 'default'
+16:05:24.227 [SpringContextShutdownHook] INFO  HikariDataSource[close:350] - HikariPool-1 - Shutdown initiated...
+16:05:24.231 [SpringContextShutdownHook] INFO  HikariDataSource[close:352] - HikariPool-1 - Shutdown completed.
+16:12:06.988 [main] INFO  GamesApplication[logStarting:55] - Starting GamesApplication on Daniel.local with PID 15777 (/Users/daniel1/Documents/Vtech/vongquaymayman/build/classes/java/main started by daniel1 in /Users/daniel1/Documents/Game/acm-lcincom-irs-centralize-configuration)
+16:12:06.990 [main] INFO  GamesApplication[logStartupProfileInfo:655] - The following profiles are active: dev

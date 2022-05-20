@@ -1,7 +1,7 @@
 databaseChangeLog:
   - changeSet:
-      id: '13Jan2020-Tag-1.0'
-      author: huy.nguyenquoc
+      id: '2022May20-Tag-1.0'
+      author: dev.daniel
       changes:
         - tagDatabase:
             tag: 1.0
